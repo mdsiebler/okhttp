@@ -253,7 +253,7 @@ public final class ConnectionCoalescingTest {
             serverIps.get(0)));
     assert200Http2Response(execute(sanUrl), "san.com");
 
-    assertEquals(1, client.connectionPool().connectionCount());
+    assertEquals(3, client.connectionPool().connectionCount());
   }
 
   /** Check that wildcard SANs are supported. */
