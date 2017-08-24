@@ -629,11 +629,6 @@ public final class MockWebServer extends ExternalResource implements Closeable {
       }
     }
 
-    String method = request.substring(0, request.indexOf(' '));
-    if (hasBody && !HttpMethod.permitsRequestBody(method)) {
-      throw new IllegalArgumentException("Request must not have a body: " + request);
-    }
-
     return new RecordedRequest(request, headers.build(), chunkSizes, requestBody.receivedByteCount,
         requestBody.buffer, sequenceNumber, socket);
   }
